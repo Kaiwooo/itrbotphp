@@ -1,20 +1,28 @@
 # Используем официальный PHP образ с Apache
 FROM php:8.2-apache
 
-# Включаем расширение cURL
-RUN docker-php-ext-install curl
+# Устанавливаем зависимости для сборки cURL
+RUN apt-get update && apt-get install -y \
+        libcurl4-openssl-dev \
+        pkg-config \
+        libssl-dev \
+        unzip \
+        git \
+    && docker-php-ext-install curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Включаем mod_rewrite (часто нужно для PHP приложений)
+# Включаем mod_rewrite
 RUN a2enmod rewrite
 
-# Копируем весь проект в рабочую директорию
+# Копируем проект в рабочую директорию
 COPY . /var/www/html/
 
-# Устанавливаем права для кеша и логов
+# Права для кеша и логов
 RUN mkdir -p /var/www/html/cache /var/www/html/logs \
     && chmod -R 777 /var/www/html/cache /var/www/html/logs
 
-# Указываем рабочую директорию
+# Устанавливаем рабочую директорию
 WORKDIR /var/www/html/
 
 # expose порт 80
