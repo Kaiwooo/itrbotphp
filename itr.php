@@ -6,6 +6,7 @@ error_reporting(0);
 #####################
 ### CONFIG OF BOT ###
 #####################
+define('DEBUG_FILE_NAME', __DIR__.'/logs/debug.log');
 define('CLIENT_ID', 'local.699f577a1322c1.19114067'); // like 'app.67efrrt2990977.85678329' or 'local.57062d3061fc71.97850406' - This code should take in a partner's site, needed only if you want to write a message from Bot at any time without initialization by the user
 define('CLIENT_SECRET', 'qhYPHLsvmVYSpcjlw6GMS4jaQS90kSF1Pc6K1zQplgEgFY8r7L'); // like '8bb00435c88aaa3028a0d44320d60339' - This code should take in a partner's site, needed only if you want to write a message from Bot at any time without initialization by the user
 #####################
