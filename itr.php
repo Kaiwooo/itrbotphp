@@ -59,7 +59,7 @@ function handleAppInstall($request, &$appsConfig) {
         'EVENT_BOT_DELETE' => $handlerBackUrl,
         'OPENLINE' => 'Y',
         'PROPERTIES' => [
-            'NAME' => 'ITR Bot for Open Channels #'.(count($appsConfig)+1),
+            'NAME' => 'ITR Bot for Open Channels #222'.(count($appsConfig)+1),
             'WORK_POSITION' => "Get ITR menu for your open channel",
             'COLOR' => 'RED',
         ]
