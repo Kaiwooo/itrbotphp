@@ -69,14 +69,14 @@ else if ($_REQUEST['event'] == 'ONAPPINSTALL')
 
 	// register new bot
 	$result = restCommand('imbot.register', Array(
-		'CODE' => 'itrbot',
+		'CODE' => 'itrbot11',
 		'TYPE' => 'O',
 		'EVENT_MESSAGE_ADD' => $handlerBackUrl,
 		'EVENT_WELCOME_MESSAGE' => $handlerBackUrl,
 		'EVENT_BOT_DELETE' => $handlerBackUrl,
 		'OPENLINE' => 'Y',
 		'PROPERTIES' => Array(
-			'NAME' => 'ITR Bot for Open Channels #'.(count($appsConfig)+1),
+			'NAME' => 'ITR Bot for Open Channels #11'.(count($appsConfig)+1),
 			'WORK_POSITION' => "Get ITR menu for you open channel",
 			'COLOR' => 'RED',
 		)
