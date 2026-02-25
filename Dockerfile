@@ -15,10 +15,16 @@ RUN apt-get update && apt-get install -y \
 # Включаем mod_rewrite
 RUN a2enmod rewrite
 
+# Указываем ServerName, чтобы убрать предупреждения Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Настраиваем Apache, чтобы itr.php запускался по умолчанию
+RUN echo "DirectoryIndex itr.php" >> /etc/apache2/apache2.conf
+
 # Копируем проект в рабочую директорию
 COPY . /var/www/html/
 
-# Права для кеша и логов
+# Создаем папки для кеша и логов, если их нет
 RUN mkdir -p /var/www/html/cache /var/www/html/logs \
     && chmod -R 777 /var/www/html/cache /var/www/html/logs
 
